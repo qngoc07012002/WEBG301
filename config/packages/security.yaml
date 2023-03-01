@@ -32,6 +32,18 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/customer/new, roles: ROLE_ADMIN }
+        - { path: ^/customer/[0-9]+/edit, roles: ROLE_ADMIN }
+        - { path: ^/customer, roles: ROLE_USER }
+        - { path: ^/category/new, roles: ROLE_ADMIN }
+        - { path: ^/category/[0-9]+/edit, roles: ROLE_ADMIN }
+        - { path: ^/category, roles: ROLE_USER }
+        - { path: ^/artist/new, roles: ROLE_ADMIN }
+        - { path: ^/artist/[0-9]+/edit, roles: ROLE_ADMIN }
+        - { path: ^/artist, roles: ROLE_USER }
+        - { path: ^/song/new, roles: ROLE_ADMIN }
+        - { path: ^/song/[0-9]+/edit, roles: ROLE_ADMIN }
+        - { path: ^/song, roles: ROLE_USER }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
