@@ -1,13 +1,29 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block body %}
+<div class="home">
     {% if app.user %}
         <div class="mb-3">
             You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
     <h1>Trang chủ</h1>
-    <p>Chào mừng đến với trang chủ của tôi!</p>
-    <a href="{{ path('app_login') }}">Login</a>
-    <a href="{{ path('app_register') }}">Register</a>
+    <p class="welcome">Chào mừng đến với trang chủ của tôi!</p>
+    <nav class="navMenu">
+    <ul>
+      <li><a class="customer" href='{{ path('app_customer_index') }}' data-item='Customer'>Customer</a></li>
+      <li><a class="category" href='{{ path('app_category_index') }}' data-item='Category'>Category</a></li>
+      <li><a class="artist" href='{{ path('app_artist_index') }}' data-item='Artist'>Artist</a></li>
+      <li><a class="song" href='{{ path('app_song_index') }}' data-item='Song'>Song</a></li>
+      <li><a class="order" href='{{ path('app_order_index') }}' data-item='Order'>Order</a></li>
+      
+    </ul>
+  </nav>
+  <div class="container">
+    <a href="{{ path('app_login') }}" class="button-a log">Login</a>
+    <a href="{{ path('app_register') }}" class="button-a reg">Register</a>
+   </div>
+</div>
 {% endblock %}

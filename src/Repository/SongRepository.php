@@ -38,7 +38,26 @@ class SongRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
+    public function findByCategory($value)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.Category = :val')
+            ->setParameter('val', $value)
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function findByArtist($value)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.Artist = :val')
+            ->setParameter('val', $value)
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }   
 //    /**
 //     * @return Song[] Returns an array of Song objects
 //     */

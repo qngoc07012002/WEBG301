@@ -9,6 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Customer</th>
+                <th>Song</th>
                 <th>Date</th>
                 <th>actions</th>
             </tr>
@@ -17,6 +19,8 @@
         {% for order in orders %}
             <tr>
                 <td>{{ order.id }}</td>
+                <td>{{ order.Customer.Name }}</td>
+                <td>{{ order.Song.Name }}</td>
                 <td>{{ order.Date ? order.Date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_order_show', {'id': order.id}) }}">show</a>

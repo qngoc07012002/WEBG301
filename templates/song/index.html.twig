@@ -10,6 +10,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Category</th>
+                <th>Artist</th>
                 <th>Price</th>
                 <th>Song_URL</th>
                 <th>actions</th>
@@ -20,6 +22,8 @@
             <tr>
                 <td>{{ song.id }}</td>
                 <td>{{ song.Name }}</td>
+                <td>{{ song.Category.Name }}</td>
+                <td>{{ song.Artist.Name }}</td>
                 <td>{{ song.Price }} $</td>
                 <td width="700" height="120"><iframe width="100%" height="120" src="{{ song.SongURL }}" frameborder="0" allow="autoplay"></iframe></td>
                 <td>

@@ -38,7 +38,26 @@ class OrderRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
+    public function findByCustomer($value)
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.Customer = :val')
+            ->setParameter('val', $value)
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function findBySong($value)
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.Song = :val')
+            ->setParameter('val', $value)
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 //    /**
 //     * @return Order[] Returns an array of Order objects
 //     */

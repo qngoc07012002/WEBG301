@@ -6,3 +6,6 @@ body {
     border-style: solid;
     border-color: blue;
 }
+.welcome {
+    font-color: red;
+}

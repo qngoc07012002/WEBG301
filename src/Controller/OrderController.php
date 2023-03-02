@@ -57,6 +57,32 @@ class OrderController extends AbstractController
     }
 
     /**
+     * @Route("/customer/{customer}", name="app_order_show_customer", methods={"GET"})
+     */
+    public function showByCustomerAction($customer)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $repo = $em->getRepository(Order::class);
+      $data = $repo->findByCustomer($customer);
+      return $this->render('order/index.html.twig', array(
+        'orders' => $data,
+      ));
+    }
+
+    /**
+     * @Route("/song/{song}", name="app_order_show_song", methods={"GET"})
+     */
+    public function showBySongAction($song)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $repo = $em->getRepository(Order::class);
+      $data = $repo->findBySong($song);
+      return $this->render('order/index.html.twig', array(
+        'orders' => $data,
+      ));
+    }
+
+    /**
      * @Route("/{id}/edit", name="app_order_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Order $order, OrderRepository $orderRepository): Response

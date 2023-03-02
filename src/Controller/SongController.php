@@ -57,6 +57,33 @@ class SongController extends AbstractController
     }
 
     /**
+     * @Route("/category/{category}", name="app_song_show_category", methods={"GET"})
+     */
+    public function showByCategoryAction($category)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $repo = $em->getRepository(Song::class);
+      $data = $repo->findByCategory($category);
+      return $this->render('song/index.html.twig', array(
+        'songs' => $data,
+      ));
+    }
+
+    /**
+     * @Route("/artist/{artist}", name="app_song_show_category", methods={"GET"})
+     */
+    public function showByArtistAction($artist)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $repo = $em->getRepository(Song::class);
+      $data = $repo->findByArtist($artist);
+      return $this->render('song/index.html.twig', array(
+        'songs' => $data,
+      ));
+    }
+
+
+    /**
      * @Route("/{id}/edit", name="app_song_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Song $song, SongRepository $songRepository): Response
