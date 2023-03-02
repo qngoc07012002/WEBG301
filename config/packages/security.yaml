@@ -44,6 +44,9 @@ security:
         - { path: ^/song/new, roles: ROLE_ADMIN }
         - { path: ^/song/[0-9]+/edit, roles: ROLE_ADMIN }
         - { path: ^/song, roles: ROLE_USER }
+        - { path: ^/order/new, roles: ROLE_ADMIN }
+        - { path: ^/order/[0-9]+/edit, roles: ROLE_ADMIN }
+        - { path: ^/order, roles: ROLE_USER }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 

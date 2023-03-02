@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ song.id }}</td>
                 <td>{{ song.Name }}</td>
-                <td>{{ song.Price }}</td>
+                <td>{{ song.Price }} $</td>
                 <td width="700" height="120"><iframe width="100%" height="120" src="{{ song.SongURL }}" frameborder="0" allow="autoplay"></iframe></td>
                 <td>
                     <a href="{{ path('app_song_show', {'id': song.id}) }}">show</a>

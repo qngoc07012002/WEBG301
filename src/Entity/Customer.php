@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\SongRepository;
+use App\Repository\CustomerRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SongRepository::class)
+ * @ORM\Entity(repositoryClass=CustomerRepository::class)
  */
-class Song
+class Customer
 {
     /**
      * @ORM\Id
@@ -25,29 +25,22 @@ class Song
     private $Name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="songs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $Category;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Artist::class, inversedBy="songs")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $Artist;
+    private $Email;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Price;
+    private $Address;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Song_URL;
+    private $Phone;
 
     /**
-     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="Song")
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="Customer")
      */
     private $orders;
     public function __toString(): ?string
@@ -76,50 +69,38 @@ class Song
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getEmail(): ?string
     {
-        return $this->Category;
+        return $this->Email;
     }
 
-    public function setCategory(?Category $Category): self
+    public function setEmail(string $Email): self
     {
-        $this->Category = $Category;
+        $this->Email = $Email;
 
         return $this;
     }
 
-    public function getArtist(): ?Artist
+    public function getAddress(): ?string
     {
-        return $this->Artist;
+        return $this->Address;
     }
 
-    public function setArtist(?Artist $Artist): self
+    public function setAddress(string $Address): self
     {
-        $this->Artist = $Artist;
+        $this->Address = $Address;
 
         return $this;
     }
 
-    public function getPrice(): ?string
+    public function getPhone(): ?string
     {
-        return $this->Price;
+        return $this->Phone;
     }
 
-    public function setPrice(string $Price): self
+    public function setPhone(string $Phone): self
     {
-        $this->Price = $Price;
-
-        return $this;
-    }
-
-    public function getSongURL(): ?string
-    {
-        return $this->Song_URL;
-    }
-
-    public function setSongURL(string $Song_URL): self
-    {
-        $this->Song_URL = $Song_URL;
+        $this->Phone = $Phone;
 
         return $this;
     }
@@ -136,7 +117,7 @@ class Song
     {
         if (!$this->orders->contains($order)) {
             $this->orders[] = $order;
-            $order->setSong($this);
+            $order->setCustomer($this);
         }
 
         return $this;
@@ -146,8 +127,8 @@ class Song
     {
         if ($this->orders->removeElement($order)) {
             // set the owning side to null (unless already changed)
-            if ($order->getSong() === $this) {
-                $order->setSong(null);
+            if ($order->getCustomer() === $this) {
+                $order->setCustomer(null);
             }
         }
 
