@@ -17,11 +17,11 @@
             </tr>
             <tr>
                 <th>Category</th>
-                <td>{{ song.Category.Name }}</td>
+                <td>{{ song.Category.Name }} - {{ song.Category }}</td>
             </tr>
             <tr>
                 <th>Artist</th>
-                <td>{{ song.Artist.Name }}</td>
+                <td>{{ song.Artist.Name }} - {{ song.Artist }}</td>
             </tr>
             <tr>
                 <th>Price</th>
@@ -34,9 +34,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_song_index') }}">back to list</a>
+    <a style="width:100px;" class="button-58" href="{{ path('app_song_index') }}">back to list</a>
 
-    <a href="{{ path('app_song_edit', {'id': song.id}) }}">edit</a>
+    <a style="width:100px; position: relative; top:10px;" class="button-58" href="{{ path('app_song_edit', {'id': song.id}) }}">edit</a>
 
    
 {% endblock %}

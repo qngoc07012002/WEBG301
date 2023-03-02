@@ -12,15 +12,23 @@
                 <td>{{ order.id }}</td>
             </tr>
             <tr>
+                <th>Customer</th>
+                <td>{{ order.Customer.Name }} - {{ order.Customer }}</td>
+            </tr>
+            <tr>
+                <th>Song</th>
+                <td>{{ order.Song.Name }} - {{ order.Song }}</td>
+            </tr>
+            <tr>
                 <th>Date</th>
                 <td>{{ order.Date ? order.Date|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_order_index') }}">back to list</a>
+    <a style="width:100px;" class="button-58" href="{{ path('app_order_index') }}">back to list</a>
 
-    <a href="{{ path('app_order_edit', {'id': order.id}) }}">edit</a>
+    <a style="width:100px; position: relative; top:10px; " class="button-58" href="{{ path('app_order_edit', {'id': order.id}) }}">edit</a>
 
   
 {% endblock %}

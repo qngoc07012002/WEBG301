@@ -70,7 +70,7 @@ class SongController extends AbstractController
     }
 
     /**
-     * @Route("/artist/{artist}", name="app_song_show_category", methods={"GET"})
+     * @Route("/artist/{artist}", name="app_song_show_artist", methods={"GET"})
      */
     public function showByArtistAction($artist)
     {
@@ -81,7 +81,6 @@ class SongController extends AbstractController
         'songs' => $data,
       ));
     }
-
 
     /**
      * @Route("/{id}/edit", name="app_song_edit", methods={"GET", "POST"})

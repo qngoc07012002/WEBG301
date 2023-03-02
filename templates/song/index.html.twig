@@ -27,8 +27,8 @@
                 <td>{{ song.Price }} $</td>
                 <td width="700" height="120"><iframe width="100%" height="120" src="{{ song.SongURL }}" frameborder="0" allow="autoplay"></iframe></td>
                 <td>
-                    <a href="{{ path('app_song_show', {'id': song.id}) }}">show</a>
-                    <a href="{{ path('app_song_edit', {'id': song.id}) }}">edit</a>
+                    <a class="button-58" href="{{ path('app_song_show', {'id': song.id}) }}">show</a>
+                    <a class="button-58" href="{{ path('app_song_edit', {'id': song.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_song_new') }}">Create new</a>
+    <a class="button-66" href="{{ path('app_song_new') }}">Create new</a>
+    <a style="position:relative; top:10px;"class="button-24" href="{{ path('home') }}">Back To Home</a>
 {% endblock %}

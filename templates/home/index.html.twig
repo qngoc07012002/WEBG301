@@ -6,10 +6,10 @@
 <div class="home">
     {% if app.user %}
         <div class="mb-3 logged">
-            Welcome {{ app.user.userIdentifier }}, hope you enjoy it! <a href="{{ path('app_logout') }}">Logout</a>
+            Welcome {{ app.user.userIdentifier }}, hope you enjoy it! <a style="color:red;" href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-    <h1>Trang chủ</h1>
+    <h1></h1>
     <p class="welcome">MUSIC MANAGEMENT</p>
     <nav class="navMenu">
     <ul>
