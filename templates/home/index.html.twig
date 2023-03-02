@@ -5,12 +5,12 @@
 {% block body %}
 <div class="home">
     {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        <div class="mb-3 logged">
+            Welcome {{ app.user.userIdentifier }}, hope you enjoy it! <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
     <h1>Trang chủ</h1>
-    <p class="welcome">Chào mừng đến với trang chủ của tôi!</p>
+    <p class="welcome">MUSIC MANAGEMENT</p>
     <nav class="navMenu">
     <ul>
       <li><a class="customer" href='{{ path('app_customer_index') }}' data-item='Customer'>Customer</a></li>
