@@ -21,9 +21,15 @@
       
     </ul>
   </nav>
+  {% if app.user %}
+  <div class="container">
+    <a href="{{ path('app_logout') }}" class="button-a log">Logout</a>
+   </div>
+  {% else %}
   <div class="container">
     <a href="{{ path('app_login') }}" class="button-a log">Login</a>
     <a href="{{ path('app_register') }}" class="button-a reg">Register</a>
    </div>
+  {% endif %}
 </div>
 {% endblock %}
